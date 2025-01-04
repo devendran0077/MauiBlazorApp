@@ -1,0 +1,17 @@
+# .NET build artifacts
+bin/
+obj/
+Debug/
+Release/
+*.user
+*.suo
+*.dbmdl
+*.log
+*.userprefs
+
+# Mac-specific files
+.DS_Store
+
+# IDE-specific files
+.vscode/
+*.idea/

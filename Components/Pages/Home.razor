@@ -1,0 +1,13 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+<h1>Hello, Amma!</h1>
+<div>
+    <button @onclick="Goto">Go to Weather</button>
+</div>>
+Welcome to your new app.
+@code{
+    private void Goto()
+    {
+NavigationManager.NavigateTo("/weather");
+    }
+}
