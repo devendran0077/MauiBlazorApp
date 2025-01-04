@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Blazored.LocalStorage;
+using Microsoft.Extensions.Logging;
 
 namespace MauiBlazorApp;
 
@@ -13,7 +14,7 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 			});
-
+		builder.Services.AddBlazoredLocalStorage();
 		builder.Services.AddMauiBlazorWebView();
 
 #if DEBUG

@@ -1,0 +1,25 @@
+@page "/products"
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
+<h1>Products</h1>
+<br><br>
+
+<div>
+    <p>val - @retrievedValue</p>
+</div>
+@code{
+    private string? retrievedValue;
+
+   protected override async Task OnInitializedAsync()
+    {
+        // Perform async initialization, like fetching data
+        await Task.Delay(1000);
+       
+        await RetrieveState();
+    }
+
+    private async Task RetrieveState()
+    {
+        retrievedValue = await localStorage.GetItemAsync<string>("testKey");
+    }
+}

@@ -1,13 +1,32 @@
 ﻿@page "/"
 @inject NavigationManager NavigationManager
+@inject Blazored.LocalStorage.ILocalStorageService localStorage
+
 <h1>Hello, Amma!</h1>
+<br/>
+<br/>
+<InputText @bind-Value="@EnteredValue"></InputText>
+<br>
 <div>
     <button @onclick="Goto">Go to Weather</button>
-</div>>
+</div>
+
+<div>
+    <button type="button" onclick="@(async ()=>{await @SaveSate();})">Save State</button>
+</div>
 Welcome to your new app.
 @code{
+       [SupplyParameterFromForm]
+        public string? EnteredValue{get;set;}
     private void Goto()
     {
-NavigationManager.NavigateTo("/weather");
+        NavigationManager.NavigateTo("/weather");
+    }
+
+    private async Task SaveSate(){
+        Console.WriteLine("Saving sate ......");
+        await localStorage.SetItemAsync("testKey",this.EnteredValue);
+        NavigationManager.NavigateTo("/products");
+
     }
 }
